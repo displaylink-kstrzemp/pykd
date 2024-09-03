@@ -1,11 +1,11 @@
 {anchor:table}
 # Table of Contents
-* [1. Introduction](#intro)
-  * [1.1 General Information](#commoninfo)
-  * [1.2 Quick Start](#gettingStarted)
-  * [1.3 Building from Source](#Building)
-  * [1.4 Manual Installation](#Installing)
-  * [1.5 API Changes](#APIchange)
+* [1. Introduction](#1-introduction)
+  * [1.1 General Information]()
+  * [1.2 Quick Start]()
+  * [1.3 Building from Source]()
+  * [1.4 Manual Installation]()
+  * [1.5 API Changes]()
 * [2. Commands for Windbg](#windbg)
   * [2.1 Loading the Plugin](#loadplugin)
   * [2.2 Running the Script](#runscript)
@@ -53,15 +53,11 @@
 
 {anchor:intro}
 # 1. Introduction
-{anchor:commoninfo}
 ## 1.1 General Information
-The pykd project started in 2010. The main motivation for development was the inconvenience of the built-in tools for writing debugging scripts for windbg. Python was chosen as an alternative scripting engine for many reasons: the ease of learning the language itself, the availability of a large standard library, and a powerful and convenient framework for creating extension modules. Pykd is a module for the CPython interpreter. Pykd itself is written in C++ and uses Boost.Python to export functions and classes to Python. Pykd provides access to debugging control on the Windows platform through the Debug Engine library and to obtaining symbolic information through the MS DIA library. Note that pykd does not provide direct access to the COM interfaces of Debug Engine and MS DIA. Instead, it implements its own interface, making the development process faster and more convenient (we hope).
+The pykd project started in 2010. The main motivation for development was the inconvenience of the built-in tools for writing debugging scripts for windbg. Python was chosen as an alternative scripting engine for many reasons: the ease of learning the language itself, the availability of a large standard library, and a powerful and convenient framework for creating extension modules. Pykd is a module for the CPython interpreter. Pykd itself is written in C++ and uses `Boost.Python` to export functions and classes to Python. Pykd provides access to debugging control on the Windows platform through the Debug Engine library and to obtaining symbolic information through the MS DIA library. Note that pykd does not provide direct access to the COM interfaces of Debug Engine and MS DIA. Instead, it implements its own interface, making the development process faster and more convenient (we hope).
 
 It is worth noting that pykd can operate in two modes: as a plugin for windbg, in which case it provides commands to run scripts in the context of a debugging session; as a separate module for the Python interpreter. The latter mode can be useful for creating automatic crash dump parsing tools, for example.
 
-[Table of Contents](#table)
-
-{anchor:gettingStarted}
 ## 1.2 Quick Start
 For a quick start, it is best to download the automatic installer. It will install all the necessary components (including Python if it is not yet installed). To ensure the installation was successful, launch windbg and start debugging an application or analyzing a dump. Load *pykd*:
 
@@ -85,11 +81,9 @@ Try running the sample scripts:
 
 If everything worked, you can move on to writing your own scripts.
 
-[Table of Contents](#table)
-
-{anchor:Building}
 ## 1.3 Building from Source
-### Download the source code from the [repository](http://pykd.codeplex.com/SourceControl/list/changesets).
+### Download the source code.
+Download from git repo.
 
 ### Install Python
 You can download the required version [here](http://www.python.org).
@@ -119,14 +113,11 @@ You can build them using the following commands:
 
 If you don't have bjam installed yet, you can download it [here](http://www.boost.org/users/download/boost_jam_3_1_18.html).
 
-[Table of Contents](#table)
-
-{anchor:Installing}
 ## 1.4 Manual Installation
 For manual installation, you will need the pykd.pyd module and the C++ runtime redistributable (vcredist) from Visual Studio, specifically the one that the module was built with. If you built it yourself, there should be no problems. If you downloaded it from the site, there should also be no problems, as the zip archive contains the necessary vcredist (assuming we didn't mess up during the release :) ).
 
 ### Where to copy pykd.pyd?
-It depends on the usage scenario. If pykd will be used as a plugin for windbg, it makes sense to copy it to the winext directory (located in the directory where windbg is installed). In this case, you can rename it to pykd.dll, so you can omit the file extension when loading:
+It depends on the usage scenario. If pykd will be used as a plugin for windbg, it makes sense to copy it to the `winext` directory (located in the directory where windbg is installed). In this case, you can rename it to pykd.dll, so you can omit the file extension when loading:
 
     kd>.load pykd
 
@@ -145,9 +136,6 @@ The MS DIA library will be installed during the vcredist installation. But for i
 
 If you built the module yourself and used Visual Studio, there is no need to take any actions with vcredist - it is already on your machine, and MS DIA is also in place.
 
-[Table of Contents](#table)
-
-{anchor:APIchange}
 ## 1.5 API Changes
 ### loadModule
 The loadModule function has been removed. Instead, you should use the constructor of the *module* class:
@@ -155,13 +143,8 @@ The loadModule function has been removed. Instead, you should use the constructo
     # mod = loadModule('mymodule')
     mod = module("mymodule")
 
-[Table of Contents](#table)
-
-{anchor:windbg}
 
 # 2. Commands for Windbg
-
-{anchor:loadplugin}
 ## 2.1 Loading the Plugin
 To load the plugin in windbg, execute the following command:
 
@@ -187,9 +170,6 @@ To unload the plugin, use one of the following commands:
 
 To avoid loading pykd each time, you can execute the "Save Workspace" command after loading the plugin. This will ensure that pykd loads automatically for the given workspace.
 
-[Table of Contents](#table)
-
-{anchor:runscript}
 ## 2.2 Running the Script
 You can run a script using the `!py` command:
 
@@ -208,9 +188,6 @@ You can access the variables in the script through the `sys.argv` list:
     print "param1: " + sys.argv[1]
     print "param2: " + sys.argv[2]
 
-[Table of Contents](#table)
-
-{anchor:console}
 ## 2.3 Console Mode
 To launch the Python console, use the `!pycmd` command:
 
@@ -232,11 +209,8 @@ Before starting, the import of pykd will be performed automatically, so you can 
     10
     >>>
 
-[Table of Contents](#table)
 
 # 3. Debugging Control
-
-{anchor:break}
 ## 3.1 Pausing and Resuming the Debugging Process
 In windbg, the commands Break (Ctrl+Break) and Go (F5) are used for this purpose. Their counterparts in pykd are:
 - `go()`
@@ -257,9 +231,6 @@ The `breakin` function is unlikely to be needed during regular operations. Typic
 
 *Warning!* Do not attempt to use the `breakin`, `go`, or `trace` functions inside debugger event handlers (e.g., in conditional breakpoints).
 
-[Table of Contents](#table)
-
-{anchor:step}
 ## 3.2 Step Execution
 For step debugging (tracing), there are two functions:
 - `step()`
@@ -267,10 +238,6 @@ For step debugging (tracing), there are two functions:
 
 Their actions are analogous to the debugger commands "trace into" and "trace over". Both functions may throw a `DbgException` if the debugged process has already terminated.
 
-[Table of Contents](#table)
-
-{anchor:debugstatus}
-{anchor:consoledebug}
 ## 3.3 Debugging Control from Python Applications
 If you want to execute your scripts outside of windbg, the first step is to create a debugging session. Session management will be discussed in more detail in a dedicated section. If your application does not plan to use multiple debugging sessions, you don't need to worry about it—the first session will be created automatically with the following calls:
 - `loadDump(dumpName)` - loads a crash dump
@@ -288,9 +255,6 @@ You can determine the debugger's mode with the following calls:
 
 The first function determines whether the debugger is in a "live" debugging state or analyzing a memory dump. The second function distinguishes between kernel-mode and user-mode debugging. If a script uses specific system symbols (e.g., Windows kernel symbols), it may be helpful to insert such a check at the beginning of the script to inform the user that they are attempting to run the script in an inappropriate situation.
 
-[Table of Contents](#table)
-
-{anchor:dbgprint}
 ## 3.4 Printing Debug Information
 To output information to the screen, you can use the standard `print` statement. However, it is recommended to use the following specialized functions:
 - `dprint(message, dml=False)`
@@ -302,18 +266,19 @@ The second function differs from the first by automatically adding a newline cha
 - `<u></u>` - underlined font
 - `<link cmd="cmdStr">command</link>` - executes a command (similar to the `<a>` tag in HTML)
 
-    dprinln("<b><u>This command reloads all symbols</b></u>", True)
-    dprinln("<link cmd=\".reload /f\">reload</link>", True)
+```
+dprinln("<b><u>This command reloads all symbols</b></u>", True)
+dprinln("<link cmd=\".reload /f\">reload</link>", True)
+```
 
-[Table of Contents](#table)
-
-{anchor:dbgcommand}
 ## 3.5 Executing Debugger Commands
 To execute a debugger command, use the following function:
-- `commandOutput dbgCommand(commandStr)`
 
-    s = dbgCommand("!analyze -v")
-    dprint(s)
+```
+commandOutput dbgCommand(commandStr)
+s = dbgCommand("!analyze -v")
+dprint(s)
+```
 
 To evaluate an expression (similar to the "?" debugger command), use the `expressionStr expr(expressionStr)` function:
 
@@ -329,22 +294,13 @@ And, if necessary, to unload the extension:
 
 *Warning!* Working with windbg extensions differs from pykd version 0.1! In version 0.2, the `ext` class has been removed, and you no longer need to worry about the lifecycle of the loaded extension.
 
-[Table of Contents](#table)
-
-{anchor:createcrash}
 ## 3.6 Creating a Crash Dump
 You can save the system state as a crash dump using the `writeDump` function. This function is available for both kernel-mode and user-mode. The second parameter specifies the type of dump (False - full dump, True - mini dump):
 
     writeDump(r"C:\dump\fulldump.dmp", False)
     writeDump(r"C:\dump\minidump.dmp", True)
 
-[Table of Contents](#table)
-
-{anchor:memory}
-
 # 4. Working with Memory and Registers
-
-{anchor:reg}
 ## 4.1 Accessing General-Purpose Registers
 Access to General-Purpose Registers (GPR) is provided by the `reg` function:
 - `cpuReg reg(regName)`
@@ -377,18 +333,12 @@ The `cpuReg` class can be used in integer calculations without additional type c
 *Note:*  
 The current implementation of `pykd` supports working only with integer registers. FPU, MMX, and SSE registers are not supported. Support is planned for future versions.
 
-[Table of Contents](#table)
-
-{anchor:msr}
 ## 4.2 Accessing Model-Specific Registers (MSR)
 Access to Model-Specific Registers is provided by the `rdmsr(msrNumber)` function:
 
     >>> print findSymbol(rdmsr(0x176))
     nt!KiFastCallEntry
 
-[Table of Contents](#table)
-
-{anchor:addr64}
 ## 4.3 Normalizing Virtual Addresses
 All `pykd` functions return virtual addresses in what is known as a normalized form, which is a 64-bit integer. For 32-bit platforms, the address is sign-extended to 64 bits. This operation in C looks like this:
 
@@ -405,9 +355,6 @@ This should be taken into account if the addresses returned by `pykd` functions 
     if nt > addr64(0x80000000):
         print "nt module is in the highest address space"
 
-[Table of Contents](#table)
-
-{anchor:memaccess}
 ## 4.4 Direct Memory Access
 `pykd` provides a large set of functions for accessing the memory of the debugged system.  
 To read unsigned integers, the following functions are available:
@@ -442,9 +389,6 @@ Often, it is necessary to read a block of memory. The following functions are us
 
 All functions return a `list` object.
 
-[Table of Contents](#table)
-
-{anchor:memerror}
 ## 4.5 Memory Access Errors
 All memory access functions throw a `MemoryException` if the data cannot be read from the specified address:
 
@@ -455,9 +399,6 @@ All memory access functions throw a `MemoryException` if the data cannot be read
 
 You can check the validity of a virtual address using the `isValid(va)` function.
 
-[Table of Contents](#table)
-
-{anchor:memstr}
 ## 4.6 Reading Strings from Memory
 It is often necessary to read string data from memory. Of course, you could use the `loadBytes` function for this, but it's not always convenient. Therefore, `pykd` provides a set of functions that return data as a string.
 
@@ -480,13 +421,8 @@ In the Windows kernel, strings are represented using the `UNICODE_STRING` and `A
 - `loadAnsiString`
 - `loadUnicodeString`
 
-[Table of Contents](#table)
-
-{anchor:modules}
 
 # 5. Modules
-
-{anchor:moduleclass}
 ## 5.1 The `module` Class
 A module is an executable file mapped into memory. A typical program consists of a main module (usually with a `.exe` extension) and a set of libraries. Modules are managed using the `module` class.
 
@@ -573,27 +509,21 @@ In addition to symbols describing variables and functions (entities that have an
 - `typedVar(symbolName)`
 - `typedVar(typeName, va)`
 
-    >>> nt = module("nt")
-    >>> print nt.typedVar("_LIST_ENTRY", nt.PsLoadedModuleList)
-    struct/class: _LIST_ENTRY at 0xfffff8000369c650
-       +0000 Flink               : _LIST_ENTRY*   0xfffffa8003c64890
-       +0008 Blink               : _LIST_ENTRY*   0xfffffa80092f8f30
+```
+>>> nt = module("nt")
+>>> print nt.typedVar("_LIST_ENTRY", nt.PsLoadedModuleList)
+struct/class: _LIST_ENTRY at 0xfffff8000369c650
+   +0000 Flink               : _LIST_ENTRY*   0xfffffa8003c64890
+   +0008 Blink               : _LIST_ENTRY*   0xfffffa80092f8f30
+```
 
-[Table of Contents](#table)
-
-{anchor:moduleload}
 ## 5.2 Handling Module Load and Unload Events
 To handle module load and unload events, you need to create a subclass of the [eventHandler](#eventHandler) class.  
 The module load event is handled by the [onLoadModule](#eventHandler_onLoadModule) method.  
 The module unload event is handled by the [onUnloadModule](#eventHandler_onUnloadModule) method.
 
-[Table of Contents](#table)
-
-{anchor:syminfo}
 
 # 6. Obtaining Symbolic Information
-
-{anchor:pdbfile}
 ## 6.1 Symbol (PDB) Files
 When a module is built, a file containing symbolic (debugging) information is created (usually with a `.pdb` extension). Depending on the compiler settings, it may contain full or partial information (so-called "public symbols"). Symbol files may contain the following information:
 - Names, types, and relative offsets of global variables and constants
@@ -604,12 +534,7 @@ When a module is built, a file containing symbolic (debugging) information is cr
 
 To work with symbol files, Microsoft provides a special library, MS DIA. *Pykd* uses this library to handle symbols. To directly access symbolic information, *pykd* implements its own interface.
 
-[Table of Contents](#table)
-
-{anchor:types}
 ## 6.2 Type Information
-
-{anchor:typeInfo}
 ### 6.2.1 The `typeInfo` Class
 The `typeInfo` class is exported to Python to represent type information. This class describes structures, classes, unions, enumerations, bit fields, pointers, and basic types.
 
@@ -627,9 +552,6 @@ The class provides the following methods:
 - `arrayOf` - creates an array of the type
 - `append` - adds a field (a method for structures and enumerations created using [typeBuilder](#typeBuilder))
 
-[Table of Contents](#table)
-
-{anchor:get_typeInfo}
 ### 6.2.2 Obtaining a Type Object
 A type object can be obtained by calling the constructor with the type name. The passed string can contain either the full type specification ("module_name!type_name") or just "type_name". 
 
@@ -648,9 +570,6 @@ Example (printing the structure `"_UNICODE_STRING"` from `ntdll`):
 
 To retrieve all types of a module, you can use the `enumTypes` method on a `module` object, which returns a list of type names represented in the module's debug symbols.
 
-[Table of Contents](#table)
-
-{anchor:typeBuilder}
 ### 6.2.3 Creating Types Not Represented in Debug Symbols
 Often during debugging, the necessary data types are not present in the debug symbols. To facilitate this, a separate class was created for building custom structures and unions—`typeBuilder`.
 
@@ -687,13 +606,8 @@ Example (creating and printing a custom structure `"_UNICODE_STRING"`):
        +0002 MaximumLength           : UInt2B
        +0008 Buffer                  : WChar*
 
-[Table of Contents](#table)
-
-{anchor:typedVar}
 
 # 7. Typed Variables
-
-{anchor:typedVar}
 ## 7.1 The `typedVar` Class
 Earlier, we looked at an example of how to read structured data from memory:
 
@@ -702,29 +616,30 @@ Earlier, we looked at an example of how to read structured data from memory:
 
 Obviously, working with large structures containing hundreds of fields in this way is not very convenient. Therefore, *pykd* implements a special class: `typedVar`, which allows working with complex data structures. The `typedVar` class obtains its data type information from the symbol information.
 
-[Table of Contents](#table)
-
-{anchor:typedVarClass}
 ## 7.2 Creating an Instance of the `typedVar` Class
 There are several overloaded constructors for the `typedVar` class:
 - `typedVar(symbolName)`
 - `typedVar(typeName, va)`
 - `typedVar(typeInfo, va)`
 
-    t1 = typedVar("MyModule!MyVar")
-    t2 = typedVar("MyModule!MyType", addr)
-    ti = typeInfo("MyModule!MyType")
-    t3 = typedVar(ti, addr)
+```
+t1 = typedVar("MyModule!MyVar")
+t2 = typedVar("MyModule!MyType", addr)
+ti = typeInfo("MyModule!MyType")
+t3 = typedVar(ti, addr)
+```
 
 All three methods will yield the same result if _addr_ is the address of the `MyVar` variable. Note that all these methods (especially the first) are not optimal in terms of performance, as significant time may be spent searching for symbol information. If possible, it is better to use the methods of the `module` class:
 - `module.typedVar(va)`
 - `module.typedVar(symbolName)`
 - `module.typedVar(typeName, va)`
 
-    mod = module("MyModule")
-    t4 = mod.typedVar(addr)
-    t5 = mod.typedVar("MyVar")
-    t6 = mod.typedVar("MyType", addr)
+```
+mod = module("MyModule")
+t4 = mod.typedVar(addr)
+t5 = mod.typedVar("MyVar")
+t6 = mod.typedVar("MyType", addr)
+```
 
 The result will be the same as a direct call to the constructor. However, the `module` class instance optimizes access to symbol information.
 
@@ -735,9 +650,6 @@ If there is an error in specifying the variable or type name, a `SymbolException
     except SymbolException:
         print "The var does not exist"
 
-[Table of Contents](#table)
-
-{anchor:typedVarMethod}
 ## 7.3 Methods of the `typedVar` Class
 - `getAddress()` - returns the address of the variable
 - `sizeof()` - returns the size of the variable
@@ -746,9 +658,6 @@ If there is an error in specifying the variable or type name, a `SymbolException
 - `deref()` - dereferences pointers and returns the result as an instance of the `typedVar` class
 - `type()` - returns the variable's type as an instance of the `typeInfo` class
 
-[Table of Contents](#table)
-
-{anchor:typedVarUDT}
 ## 7.4 Classes and Structures
 You can access the fields of a structure using the `field` method. For convenience, a method to access fields as class attributes has been added:
 
@@ -771,9 +680,6 @@ As seen in the example, a tuple of the field name and its value is returned in t
 
 Variables of type `typedVar` can participate in arithmetic operations. The address of the variable is used as the value. *Note:* In arithmetic operations, the rules of C pointer arithmetic *do not apply*. The address is treated simply as a number, so `var + 1` just increments the address value.
 
-[Table of Contents](#table)
-
-{anchor:typedVarArray}
 ## 7.5 Arrays and Pointers
 The `typedVar` class allows working with arrays, including multidimensional ones. To access array elements, use the `[]` index operator:
 
@@ -797,13 +703,8 @@ The `typedVar` class can also work with pointers. To "dereference" a pointer, us
 
 `typedVar` variables can participate in arithmetic expressions. For arrays, the address is used as the value, and for pointers, the pointer value (i.e., where it points). *Note:* In arithmetic operations, the rules of C pointer arithmetic *do not apply*.
 
-[Table of Contents](#table)
-
-{anchor:typedVarEnum}
 
 # 7. Typed Variables
-
-{anchor:typedVarEnum}
 ## 7.6 Enumerators
 When working with enumerators, it is useful to access the type information of the enumerator, as this is how you can get the correspondence between numeric constants and symbolic names. This can be done through the `type` method, which returns a reference to a `typeInfo` object:
 
@@ -828,9 +729,6 @@ Instances of `typedVar` containing enumerators can be used in arithmetic operati
     >>> var = typedVar("myStruct")
     >>> print var.structType * 2 + 10
 
-[Table of Contents](#table)
-
-{anchor:typedVarCast}
 ## 7.7 Casting to Other Types
 The `typedVar` class has operators for casting to a string (`__str__`) and to an integer (`__long__`).
 
@@ -846,20 +744,18 @@ The integer value returned by the `long()` function depends on the data type sto
 - **Pointers**: The pointer's value is returned.
 - **Arrays**: The pointer to the start of the data is returned.
 
-    >>> long(typedVar("g_struct").m_noArrayField)
-    3L
-    >>> hex(long(typedVar("g_struct").m_arrayField))
-    '0x13f4391f8L'
-    >>> 
-    >>> long(typedVar("g_struct").m_arrayField[1])
-    2L
+```
+>>> long(typedVar("g_struct").m_noArrayField)
+3L
+>>> hex(long(typedVar("g_struct").m_arrayField))
+'0x13f4391f8L'
+>>> 
+>>> long(typedVar("g_struct").m_arrayField[1])
+2L
+```
 
-[Table of Contents](#table)
 
-{anchor:ProcessThreads}
 # 8. Processes and Threads
-
-{anchor:UserModeThreads}
 ## 8.1 User-Mode Threads
 In user mode, the debugger operates in the context of the debugged process. If the process has multiple threads, you can switch the debugging context to another thread. It is important to distinguish between the "current thread" (the thread that will continue execution when debugging is resumed) and the "implicit thread" (the thread in which the debugger is currently operating). The thread context refers to the set of processor registers, including the current instruction pointer and stack pointer.
 
@@ -867,31 +763,22 @@ To change the thread context, use the `setImplicitThread` function, which takes 
 - `getImplicitThread` - TEB of the current thread
 - `getProcessThreads` - list of TEBs for all threads in the process
 
-[Table of Contents](#table)
-
-{anchor:KernelModeThreads}
 ## 8.2 Kernel-Mode Threads
 In kernel mode, there are some differences:
 - The `setImplicitThread` and `getImplicitThread` functions work with pointers to `ETHREAD`, not `TEB` as in user mode.
 - The `getProcessThreads` function is not available in kernel mode. If you need to obtain a list of threads for a process, you'll need to manually parse the `EPROCESS` structure. Fortunately, this is not difficult:
 
-    nt = module("nt")
-    process = nt.typedVar("_EPROCESS", processAddr)
-    threadLst = nt.typedVarList(process.ThreadListHead, "_ETHREAD", "ThreadListEntry")
+```
+nt = module("nt")
+process = nt.typedVar("_EPROCESS", processAddr)
+threadLst = nt.typedVarList(process.ThreadListHead, "_ETHREAD", "ThreadListEntry")
+```
 
 It is important to note that switching the context of the debugged thread does not switch the context of the process. More details on this are provided in the next section.
 
-[Table of Contents](#table)
-
-{anchor:KernelModeProcess}
 ## 8.3 Kernel-Mode Processes
 
-[Table of Contents](#table)
-
-{anchor:Locals}
 # 9. Local Variables
-
-{anchor:CurrentLocals}
 ## 9.1 Current Local Variables
 When debugging an application, the system kernel, or analyzing a crash dump, there is always a current thread, and in that thread, a current frame. If there is debugging information for the module to which this frame belongs and that debugging information includes local variables, you can access them conveniently without explicit operations with registers and the stack. The `getLocals()` function is used for this purpose. It returns a `dict` object where the key is the variable name and the value is an instance of the `typedVar` class:
 
@@ -902,13 +789,8 @@ When debugging an application, the system kernel, or analyzing a crash dump, the
     for varName, varValue in getLocals().items():
         print varName, varValue
 
-[Table of Contents](#table)
-
-{anchor:breakpoints}
 
 # 10. Breakpoints
-
-{anchor:setBreakpoints}
 ## 10.1 Setting Breakpoints
 The `setBp` function is used to set breakpoints. It allows setting both software and hardware breakpoints. The function returns a numeric identifier that can later be used to remove the breakpoint with the `removeBp` function.
 
@@ -924,9 +806,6 @@ Setting a hardware breakpoint:
 
 The second parameter specifies the size of the memory accessed, and the third parameter specifies the type of access (1 - read, 2 - write, 4 - execute). The access types work as flags and can be combined. For example, 3 means read + write.
 
-[Table of Contents](#table)
-
-{anchor:condBreakpoints}
 ## 10.2 Conditional Breakpoints
 To set a conditional breakpoint, a callback function is used, which is passed as a parameter to the `setBp` call. This function must accept one parameter (the identifier of the triggered breakpoint is passed to it). For the breakpoint to trigger, the callback function must return `True`.
 
@@ -971,36 +850,16 @@ Callback functions have some restrictions on the use of the *pykd* API:
 - You cannot call functions that may create or destroy debug sessions: `startProcess`, `killProcess`, `openDump`, etc.
 - You cannot manipulate thread and process contexts (`setCurrentProcess`, `setImplicitThread`).
 
-[Table of Contents](#table)
-
-{anchor:eventHandler}
 # 11. Debugging Events
-
-[Table of Contents](#table)
-
-{anchor:eventHandler_onBreakpoint}
 ## 11.1 Handling Breakpoints (onBreakpoint Method)
 
-[Table of Contents](#table)
-
-{anchor:eventHandler_onException}
 ## 11.2 Handling Exceptions (onException Method)
 
-[Table of Contents](#table)
-
-{anchor:eventHandler_onLoadModule}
 ## 11.3 Handling Module Load Events (onLoadModule Method)
 
-[Table of Contents](#table)
-
-{anchor:eventHandler_onUnloadModule}
 ## 11.4 Handling Module Unload Events (onUnloadModule Method)
 
-[Table of Contents](#table)
-
-{anchor:disasm}
 # 12. The `disasm` Class
-[disasm reference|PYKD 0.1. API Reference#disasm]
 
 The `disasm` class is a wrapper around the disassembler from Debug Engine. Accordingly, the results of its work are the same as those of the `u` command in `kd/cdb/windbg`.
 
@@ -1023,4 +882,3 @@ The effective address is the address of an operand located in memory. For exampl
 
 The effective address would be the value of `esi + 0x10`. Obviously, this value makes sense when disassembling the current instruction.
 
-[Table of Contents](#table)
