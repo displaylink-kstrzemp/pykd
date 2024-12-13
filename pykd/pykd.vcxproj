@@ -137,14 +137,14 @@
     <ProjectName>pykd</ProjectName>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_2.7|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>2.7</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -152,7 +152,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.5</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -160,7 +160,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.6</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -168,7 +168,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.7</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -176,7 +176,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.8</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -184,7 +184,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.9</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -192,7 +192,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.10</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -200,7 +200,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.11</PythonVersion>
     <PythonVersionFull>3.11.2</PythonVersionFull>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
@@ -209,7 +209,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>2.7</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -217,7 +217,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.5</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -225,7 +225,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.6</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -233,7 +233,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.7</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -241,7 +241,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.8</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -249,7 +249,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.9</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -257,7 +257,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.10</PythonVersion>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
   </PropertyGroup>
@@ -265,7 +265,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.11</PythonVersion>
     <PythonVersionFull>3.11.2</PythonVersionFull>
     <LLVM_USE_CRT_DEBUG>MDd</LLVM_USE_CRT_DEBUG>
@@ -275,7 +275,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>2.7</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -284,7 +284,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.5</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -293,7 +293,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.6</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -302,7 +302,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.7</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -311,7 +311,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.8</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -320,7 +320,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.9</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -329,7 +329,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.10</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -338,7 +338,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.11</PythonVersion>
     <PythonVersionFull>3.11.2</PythonVersionFull>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
@@ -348,7 +348,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>2.7</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -357,7 +357,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.5</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -366,7 +366,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.6</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -375,7 +375,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.7</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -384,7 +384,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.8</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -393,7 +393,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.9</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -402,7 +402,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.10</PythonVersion>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
   </PropertyGroup>
@@ -411,7 +411,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <PythonVersion>3.11</PythonVersion>
     <PythonVersionFull>3.11.2</PythonVersionFull>
     <LLVM_USE_CRT_RELEASE>MT</LLVM_USE_CRT_RELEASE>
