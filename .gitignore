@@ -1,2 +1,7 @@
 *.pyc
 .vs
+*.user
+packages/
+UpgradeLog.htm
+pykd/x64
+
