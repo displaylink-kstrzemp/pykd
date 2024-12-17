@@ -4,4 +4,6 @@
 packages/
 UpgradeLog.htm
 pykd/x64
+cmake/
+out/
 
