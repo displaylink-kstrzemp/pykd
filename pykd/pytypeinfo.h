@@ -66,13 +66,15 @@ inline kdlib::TypeInfoPtr getTypeFromSource( const std::wstring& sourceCode, con
 inline kdlib::TypeInfoProviderPtr getTypeInfoProviderFromSource(const std::wstring& sourceCode, const std::wstring& compileOptions=L"")
 {
     AutoRestorePyState  pystate;
-    return kdlib::getTypeInfoProviderFromSource(sourceCode, compileOptions);
+    std::string error;
+    return kdlib::getTypeInfoProviderFromSource(sourceCode, error, compileOptions);
 }
 
 inline kdlib::SymbolProviderPtr getSymbolProviderFromSource(const std::wstring& sourceCode, const std::wstring& compileOptions = L"")
 {
     AutoRestorePyState  pystate;
-    return kdlib::getSymbolProviderFromSource(sourceCode, compileOptions);
+    std::string error;
+    return kdlib::getSymbolProviderFromSource(sourceCode, error, compileOptions);
 }
 
 inline kdlib::TypeInfoProviderPtr getTypeInfoProviderFromPdb(const std::wstring&  fileName, kdlib::MEMOFFSET_64 offset = 0UL)

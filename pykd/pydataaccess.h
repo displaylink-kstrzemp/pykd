@@ -218,6 +218,18 @@ public:
         throw kdlib::DbgException("python accessor error");
     }
 
+    virtual kdlib::DataAccessorPtr nestedCopy(size_t  startOffset = 0, size_t  length = -1) override {
+        throw kdlib::DbgException("python accessor error");
+    }
+
+    virtual kdlib::DataAccessorPtr externalCopy(kdlib::MEMOFFSET_64  startAddr = 0, size_t  length = -1) override {
+        throw kdlib::DbgException("python accessor error");
+    }
+
+    virtual bool checkRange(kdlib::MEMOFFSET_64 startAddr, size_t length) const override {
+        throw kdlib::DbgException("python accessor error");
+    }
+
 private:
 
     python::object   m_object;
